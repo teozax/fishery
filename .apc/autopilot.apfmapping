@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="core.cpp" path="C:\Users\xristina\Documents\fishery\C++\src\core.cpp"/>
+    <originFiles name="core.h" path="C:\Users\xristina\Documents\fishery\C++\src\core.h"/>
+    <originFiles name="ex_enhancement.cpp" path="C:\Users\xristina\Documents\fishery\C++\src\ex_enhancement.cpp"/>
+    <originFiles name="extra_functions.cpp" path="C:\Users\xristina\Documents\fishery\C++\src\extra_functions.cpp"/>
+    <originFiles name="guidedfilter.cpp" path="C:\Users\xristina\Documents\fishery\C++\src\guidedfilter.cpp"/>
+    <originFiles name="CCL+Windows.cpp" path="C:\Users\xristina\Documents\fishery\C++\src\CCL+Windows.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="test_core.cpp" path="C:\Users\xristina\Documents\fishery\C++\tb\test_core.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

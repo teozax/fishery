@@ -1,0 +1,58 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'CCL'" level="0">
+<item name = "Date">Sun Mar 14 17:35:40 2021
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">fishery</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.543 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">1190653, 1421692, 11.907 ms, 14.217 ms, 1190653, 1421692, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_windows_fu_17781">windows, 412, 3650, 4.120 us, 36.500 us, 412, 3650, none</column>
+<column name="grp_local_sort_fu_18061">local_sort, 204, 303, 2.040 us, 3.030 us, 204, 303, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- first_row">958, 958, 3, 2, 1, 479, yes</column>
+<column name="- Loop 2">387361, 387361, 5, 3, 1, 129120, yes</column>
+<column name="- second_pass_Y_second_pass_X">129602, 129602, 4, 1, 1, 129600, yes</column>
+<column name="- init_sizes_table">3500, 3500, 5, -, -, 700, no</column>
+<column name="- count_label_size_Y_count_label_size_X">259200, 259200, 3, 2, 1, 129600, yes</column>
+<column name="- Loop 6">129601, 129601, 3, 1, 1, 129600, yes</column>
+<column name="- exloop1">150612, 381552, 25102 ~ 63592, -, -, 6, no</column>
+<column name=" + exloop2">25100, 63590, 2510 ~ 6359, -, -, 10, no</column>
+<column name="  ++ loop4_loop5">2502, 2502, 4, 1, 1, 2500, yes</column>
+<column name="  ++ exloop2.2">1, 200, 2, 1, 1, 1 ~ 200, yes</column>
+<column name="- Loop 8">129600, 129600, 2, 1, 1, 129600, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

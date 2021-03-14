@@ -1,0 +1,145 @@
+
+
+================================================================
+== Vivado HLS Report for 'ex_enhancement'
+================================================================
+* Date:           Sun Mar 14 17:37:10 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        fishery
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.084 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+--------+----------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval    | Pipeline |
+    |   min   |   max   |    min   |    max   |   min  |   max  |   Type   |
+    +---------+---------+----------+----------+--------+--------+----------+
+    |   137445|   137445| 1.374 ms | 1.374 ms |  137284|  137284| dataflow |
+    +---------+---------+----------+----------+--------+--------+----------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------+-----------------+---------+---------+----------+----------+--------+--------+----------+
+        |                    |                 |  Latency (cycles) |  Latency (absolute) |     Interval    | Pipeline |
+        |      Instance      |      Module     |   min   |   max   |    min   |    max   |   min  |   max  |   Type   |
+        +--------------------+-----------------+---------+---------+----------+----------+--------+--------+----------+
+        |guidedfilter204_U0  |guidedfilter204  |   137443|   137443| 1.374 ms | 1.374 ms |  137284|  137284| dataflow |
+        |read_data1_U0       |read_data1       |   129603|   129603| 1.296 ms | 1.296 ms |  129603|  129603|   none   |
+        +--------------------+-----------------+---------+---------+----------+----------+--------+--------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|       2|    -|
+|FIFO             |        0|      -|      20|     176|    -|
+|Instance         |      169|     16|   28435|   36413|    0|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|       -|    -|
+|Register         |        -|      -|       -|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |      169|     16|   28455|   36591|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        9|   ~0  |       5|      13|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------+-----------------+---------+-------+-------+-------+-----+
+    |      Instance      |      Module     | BRAM_18K| DSP48E|   FF  |  LUT  | URAM|
+    +--------------------+-----------------+---------+-------+-------+-------+-----+
+    |guidedfilter204_U0  |guidedfilter204  |      169|     12|  28390|  36096|    0|
+    |read_data1_U0       |read_data1       |        0|      4|     45|    317|    0|
+    +--------------------+-----------------+---------+-------+-------+-------+-----+
+    |Total               |                 |      169|     16|  28435|  36413|    0|
+    +--------------------+-----------------+---------+-------+-------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +--------------+---------+---+----+-----+------+-----+---------+
+    |     Name     | BRAM_18K| FF| LUT| URAM| Depth| Bits| Size:D*B|
+    +--------------+---------+---+----+-----+------+-----+---------+
+    |I_2_V_V_U     |        0|  5|   0|    -|     2|   32|       64|
+    |I_COPY_V_V_U  |        0|  5|   0|    -|     2|   32|       64|
+    |I_V_V_U       |        0|  5|   0|    -|     2|   32|       64|
+    |ONES_V_V_U    |        0|  5|   0|    -|     2|   32|       64|
+    +--------------+---------+---+----+-----+------+-----+---------+
+    |Total         |        0| 20|   0|    0|     8|  128|      256|
+    +--------------+---------+---+----+-----+------+-----+---------+
+
+    * Expression: 
+    +--------------+----------+-------+---+----+------------+------------+
+    | Variable Name| Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------+----------+-------+---+----+------------+------------+
+    |ap_idle       |    and   |      0|  0|   2|           1|           1|
+    +--------------+----------+-------+---+----+------------+------------+
+    |Total         |          |      0|  0|   2|           1|           1|
+    +--------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------------+-----+-----+------------+----------------------------+--------------+
+|              RTL Ports             | Dir | Bits|  Protocol  |        Source Object       |    C Type    |
++------------------------------------+-----+-----+------------+----------------------------+--------------+
+|inputImage_data_stream_0_V_dout     |  in |    8|   ap_fifo  | inputImage_data_stream_0_V |    pointer   |
+|inputImage_data_stream_0_V_empty_n  |  in |    1|   ap_fifo  | inputImage_data_stream_0_V |    pointer   |
+|inputImage_data_stream_0_V_read     | out |    1|   ap_fifo  | inputImage_data_stream_0_V |    pointer   |
+|inputImage_data_stream_1_V_dout     |  in |    8|   ap_fifo  | inputImage_data_stream_1_V |    pointer   |
+|inputImage_data_stream_1_V_empty_n  |  in |    1|   ap_fifo  | inputImage_data_stream_1_V |    pointer   |
+|inputImage_data_stream_1_V_read     | out |    1|   ap_fifo  | inputImage_data_stream_1_V |    pointer   |
+|inputImage_data_stream_2_V_dout     |  in |    8|   ap_fifo  | inputImage_data_stream_2_V |    pointer   |
+|inputImage_data_stream_2_V_empty_n  |  in |    1|   ap_fifo  | inputImage_data_stream_2_V |    pointer   |
+|inputImage_data_stream_2_V_read     | out |    1|   ap_fifo  | inputImage_data_stream_2_V |    pointer   |
+|I_enhanced_data_stream_V_din        | out |   16|   ap_fifo  |  I_enhanced_data_stream_V  |    pointer   |
+|I_enhanced_data_stream_V_full_n     |  in |    1|   ap_fifo  |  I_enhanced_data_stream_V  |    pointer   |
+|I_enhanced_data_stream_V_write      | out |    1|   ap_fifo  |  I_enhanced_data_stream_V  |    pointer   |
+|ap_clk                              |  in |    1| ap_ctrl_hs |       ex_enhancement       | return value |
+|ap_rst                              |  in |    1| ap_ctrl_hs |       ex_enhancement       | return value |
+|ap_start                            |  in |    1| ap_ctrl_hs |       ex_enhancement       | return value |
+|ap_done                             | out |    1| ap_ctrl_hs |       ex_enhancement       | return value |
+|ap_ready                            | out |    1| ap_ctrl_hs |       ex_enhancement       | return value |
+|ap_idle                             | out |    1| ap_ctrl_hs |       ex_enhancement       | return value |
+|ap_continue                         |  in |    1| ap_ctrl_hs |       ex_enhancement       | return value |
++------------------------------------+-----+-----+------------+----------------------------+--------------+
+

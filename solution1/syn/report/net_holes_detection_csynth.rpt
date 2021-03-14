@@ -1,0 +1,256 @@
+
+
+================================================================
+== Vivado HLS Report for 'net_holes_detection'
+================================================================
+* Date:           Sun Mar 14 17:40:08 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        fishery
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.611 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+---------+---------+----------+
+    |  Latency (cycles) |   Latency (absolute)  |      Interval     | Pipeline |
+    |   min   |   max   |    min    |    max    |   min   |   max   |   Type   |
+    +---------+---------+-----------+-----------+---------+---------+----------+
+    |  1319390|  1550429| 13.194 ms | 15.504 ms |  1190654|  1421693| dataflow |
+    +---------+---------+-----------+-----------+---------+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------+------------------------+---------+---------+-----------+-----------+---------+---------+----------+
+        |                           |                        |  Latency (cycles) |   Latency (absolute)  |      Interval     | Pipeline |
+        |          Instance         |         Module         |   min   |   max   |    min    |    max    |   min   |   max   |   Type   |
+        +---------------------------+------------------------+---------+---------+-----------+-----------+---------+---------+----------+
+        |CCL_U0                     |CCL                     |  1190653|  1421692| 11.907 ms | 14.217 ms |  1190653|  1421692|   none   |
+        |ex_enhancement_U0          |ex_enhancement          |   137445|   137445|  1.374 ms |  1.374 ms |   137284|   137284| dataflow |
+        |Loop_loop_height_pro_U0    |Loop_loop_height_pro    |   138051|   138051|  1.381 ms |  1.381 ms |   138051|   138051|   none   |
+        |Loop_loop_height_pro_1_U0  |Loop_loop_height_pro_1  |   138051|   138051|  1.381 ms |  1.381 ms |   138051|   138051|   none   |
+        |mat2gray_U0                |mat2gray                |   129655|   129655|  1.297 ms |  1.297 ms |   129655|   129655|   none   |
+        |mean_filter_2D_U0          |mean_filter_2D          |   133714|   133714|  1.337 ms |  1.337 ms |   133714|   133714|   none   |
+        |adaptive_threshold_U0      |adaptive_threshold      |   129603|   129603|  1.296 ms |  1.296 ms |   129603|   129603|   none   |
+        |AddWeighted_U0             |AddWeighted             |        1|   130411| 10.000 ns |  1.304 ms |        1|   130411|   none   |
+        |Duplicate266_U0            |Duplicate266            |        1|   130411| 10.000 ns |  1.304 ms |        1|   130411|   none   |
+        |Duplicate269_U0            |Duplicate269            |        1|   130411| 10.000 ns |  1.304 ms |        1|   130411|   none   |
+        |Duplicate270_U0            |Duplicate270            |        1|   130411| 10.000 ns |  1.304 ms |        1|   130411|   none   |
+        |Duplicate_U0               |Duplicate               |        1|   130411| 10.000 ns |  1.304 ms |        1|   130411|   none   |
+        |AXIvideo2Mat_U0            |AXIvideo2Mat            |   130953|   130953|  1.310 ms |  1.310 ms |   130953|   130953|   none   |
+        |MinMaxLoc_U0               |MinMaxLoc               |   130411|   130411|  1.304 ms |  1.304 ms |   130411|   130411|   none   |
+        |Mat2AXIvideo_U0            |Mat2AXIvideo            |   130681|   130681|  1.307 ms |  1.307 ms |   130681|   130681|   none   |
+        |AXIstream2Mat_U0           |AXIstream2Mat           |   129602|   129602|  1.296 ms |  1.296 ms |   129602|   129602|   none   |
+        |threshold_U0               |threshold               |   129602|   129602|  1.296 ms |  1.296 ms |   129602|   129602|   none   |
+        |Block_codeRepl7839_p_U0    |Block_codeRepl7839_p    |        0|        0|    0 ns   |    0 ns   |        0|        0|   none   |
+        +---------------------------+------------------------+---------+---------+-----------+-----------+---------+---------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      36|    -|
+|FIFO             |        0|      -|     179|     926|    -|
+|Instance         |     1110|     32|  132655|  173947|    0|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      36|    -|
+|Register         |        -|      -|       6|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |     1110|     32|  132840|  174945|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |       60|      1|      24|      63|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------------+---------------------------------------+---------+-------+-------+-------+-----+
+    |                 Instance                |                 Module                | BRAM_18K| DSP48E|   FF  |  LUT  | URAM|
+    +-----------------------------------------+---------------------------------------+---------+-------+-------+-------+-----+
+    |AXIstream2Mat_U0                         |AXIstream2Mat                          |        0|      0|     25|    206|    0|
+    |AXIvideo2Mat_U0                          |AXIvideo2Mat                           |        0|      0|    192|    353|    0|
+    |AddWeighted_U0                           |AddWeighted                            |        0|      0|    169|    340|    0|
+    |Block_codeRepl7839_p_U0                  |Block_codeRepl7839_p                   |        0|      0|      3|     92|    0|
+    |CCL_U0                                   |CCL                                    |      915|      6|  88721|  90562|    0|
+    |Duplicate_U0                             |Duplicate                              |        0|      0|    169|    251|    0|
+    |Duplicate266_U0                          |Duplicate266                           |        0|      0|    169|    251|    0|
+    |Duplicate269_U0                          |Duplicate269                           |        0|      0|    168|    242|    0|
+    |Duplicate270_U0                          |Duplicate270                           |        0|      0|    169|    251|    0|
+    |Loop_loop_height_pro_U0                  |Loop_loop_height_pro                   |        9|      0|   2866|  17034|    0|
+    |Loop_loop_height_pro_1_U0                |Loop_loop_height_pro_1                 |        9|      0|   2368|  16896|    0|
+    |Mat2AXIvideo_U0                          |Mat2AXIvideo                           |        0|      0|     39|    195|    0|
+    |MinMaxLoc_U0                             |MinMaxLoc                              |        0|      0|     67|    242|    0|
+    |adaptive_threshold_U0                    |adaptive_threshold                     |        0|      8|    109|    591|    0|
+    |ex_enhancement_U0                        |ex_enhancement                         |      169|     16|  28455|  36591|    0|
+    |mat2gray_U0                              |mat2gray                               |        0|      2|   7191|   4473|    0|
+    |mean_filter_2D_U0                        |mean_filter_2D                         |        8|      0|   1714|   5182|    0|
+    |net_holes_detection_CONTROL_BUS_s_axi_U  |net_holes_detection_CONTROL_BUS_s_axi  |        0|      0|     36|     40|    0|
+    |threshold_U0                             |threshold                              |        0|      0|     25|    155|    0|
+    +-----------------------------------------+---------------------------------------+---------+-------+-------+-------+-----+
+    |Total                                    |                                       |     1110|     32| 132655| 173947|    0|
+    +-----------------------------------------+---------------------------------------+---------+-------+-------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +------------------------+---------+---+----+-----+------+-----+---------+
+    |          Name          | BRAM_18K| FF| LUT| URAM| Depth| Bits| Size:D*B|
+    +------------------------+---------+---+----+-----+------+-----+---------+
+    |Background_data_stre_U  |        0|  5|   0|    -|     2|   16|       32|
+    |I_enh1_data_stream_0_U  |        0|  5|   0|    -|     2|   16|       32|
+    |I_enh2_data_stream_0_U  |        0|  5|   0|    -|     2|   16|       32|
+    |I_enhanced_cols_V_c_U   |        0|  5|   0|    -|     3|   10|       30|
+    |I_enhanced_data_stre_U  |        0|  5|   0|    -|     2|   16|       32|
+    |I_enhanced_rows_V_c_U   |        0|  5|   0|    -|     3|   10|       30|
+    |LI_V_V_U                |        0|  5|   0|    -|     2|   32|       64|
+    |Luminance_img_V_V_U     |        0|  5|   0|    -|     2|   32|       64|
+    |help_V_V_U              |        0|  5|   0|    -|     2|   32|       64|
+    |img_0_data_stream_0_U   |        0|  5|   0|    -|     2|    8|       16|
+    |img_0_data_stream_1_U   |        0|  5|   0|    -|     2|    8|       16|
+    |img_0_data_stream_2_U   |        0|  5|   0|    -|     2|    8|       16|
+    |img_10_data_stream_0_U  |        0|  5|   0|    -|     2|   16|       32|
+    |img_11_data_stream_0_U  |        0|  5|   0|    -|     2|   16|       32|
+    |img_12_data_stream_0_U  |        0|  5|   0|    -|     2|    8|       16|
+    |img_12_data_stream_1_U  |        0|  5|   0|    -|     2|    8|       16|
+    |img_12_data_stream_2_U  |        0|  5|   0|    -|     2|    8|       16|
+    |img_1_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_2_cols_V_c7947_U    |        0|  5|   0|    -|     2|   10|       20|
+    |img_2_cols_V_c_U        |        0|  5|   0|    -|     6|   10|       60|
+    |img_2_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_2_rows_V_c7946_U    |        0|  5|   0|    -|     2|   10|       20|
+    |img_2_rows_V_c_U        |        0|  5|   0|    -|     6|   10|       60|
+    |img_3_cols_V_c_U        |        0|  6|   0|    -|     8|   10|       80|
+    |img_3_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_3_rows_V_c_U        |        0|  6|   0|    -|     8|   10|       80|
+    |img_4_cols_V_c_U        |        0|  6|   0|    -|     8|   10|       80|
+    |img_4_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_4_rows_V_c_U        |        0|  6|   0|    -|     8|   10|       80|
+    |img_5_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_6_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_8_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |img_9_data_stream_0_U   |        0|  5|   0|    -|     2|   16|       32|
+    |max_value_c_U           |        0|  5|   0|    -|     2|   16|       32|
+    |min_value_c_U           |        0|  5|   0|    -|     2|   16|       32|
+    +------------------------+---------+---+----+-----+------+-----+---------+
+    |Total                   |        0|179|   0|    0|   104|  500|     1340|
+    +------------------------+---------+---+----+-----+------+-----+---------+
+
+    * Expression: 
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |               Variable Name              | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |AXIvideo2Mat_U0_ap_ready_count            |     +    |      0|  0|   9|           2|           1|
+    |Block_codeRepl7839_p_U0_ap_ready_count    |     +    |      0|  0|   9|           2|           1|
+    |AXIvideo2Mat_U0_ap_start                  |    and   |      0|  0|   2|           1|           1|
+    |Block_codeRepl7839_p_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |Block_codeRepl7839_p_U0_start_full_n      |    and   |      0|  0|   2|           1|           1|
+    |Duplicate270_U0_start_full_n              |    and   |      0|  0|   2|           1|           1|
+    |Duplicate_U0_start_full_n                 |    and   |      0|  0|   2|           1|           1|
+    |ap_idle                                   |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_ready                             |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_AXIvideo2Mat_U0_ap_ready          |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_Block_codeRepl7839_p_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                     |          |      0|  0|  36|          13|          11|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |                     Name                     | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |AXIvideo2Mat_U0_ap_ready_count                |   9|          2|    2|          4|
+    |Block_codeRepl7839_p_U0_ap_ready_count        |   9|          2|    2|          4|
+    |ap_sync_reg_AXIvideo2Mat_U0_ap_ready          |   9|          2|    1|          2|
+    |ap_sync_reg_Block_codeRepl7839_p_U0_ap_ready  |   9|          2|    1|          2|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |Total                                         |  36|          8|    6|         12|
+    +----------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------+---+----+-----+-----------+
+    |                     Name                     | FF| LUT| Bits| Const Bits|
+    +----------------------------------------------+---+----+-----+-----------+
+    |AXIvideo2Mat_U0_ap_ready_count                |  2|   0|    2|          0|
+    |Block_codeRepl7839_p_U0_ap_ready_count        |  2|   0|    2|          0|
+    |ap_sync_reg_AXIvideo2Mat_U0_ap_ready          |  1|   0|    1|          0|
+    |ap_sync_reg_Block_codeRepl7839_p_U0_ap_ready  |  1|   0|    1|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+    |Total                                         |  6|   0|    6|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++---------------------------+-----+-----+------------+------------------------+--------------+
+|s_axi_CONTROL_BUS_AWVALID  |  in |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_AWREADY  | out |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_AWADDR   |  in |    4|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_WVALID   |  in |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_WREADY   | out |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_WDATA    |  in |   32|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_WSTRB    |  in |    4|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_ARVALID  |  in |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_ARREADY  | out |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_ARADDR   |  in |    4|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_RVALID   | out |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_RREADY   |  in |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_RDATA    | out |   32|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_RRESP    | out |    2|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_BVALID   | out |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_BREADY   |  in |    1|    s_axi   |       CONTROL_BUS      |  return void |
+|s_axi_CONTROL_BUS_BRESP    | out |    2|    s_axi   |       CONTROL_BUS      |  return void |
+|ap_clk                     |  in |    1| ap_ctrl_hs |   net_holes_detection  | return value |
+|ap_rst_n                   |  in |    1| ap_ctrl_hs |   net_holes_detection  | return value |
+|interrupt                  | out |    1| ap_ctrl_hs |   net_holes_detection  | return value |
+|INPUT_STREAM_TDATA         |  in |   24|    axis    |  INPUT_STREAM_V_data_V |    pointer   |
+|INPUT_STREAM_TKEEP         |  in |    3|    axis    |  INPUT_STREAM_V_keep_V |    pointer   |
+|INPUT_STREAM_TSTRB         |  in |    3|    axis    |  INPUT_STREAM_V_strb_V |    pointer   |
+|INPUT_STREAM_TUSER         |  in |    1|    axis    |  INPUT_STREAM_V_user_V |    pointer   |
+|INPUT_STREAM_TLAST         |  in |    1|    axis    |  INPUT_STREAM_V_last_V |    pointer   |
+|INPUT_STREAM_TID           |  in |    1|    axis    |   INPUT_STREAM_V_id_V  |    pointer   |
+|INPUT_STREAM_TDEST         |  in |    1|    axis    |  INPUT_STREAM_V_dest_V |    pointer   |
+|INPUT_STREAM_TVALID        |  in |    1|    axis    |  INPUT_STREAM_V_dest_V |    pointer   |
+|INPUT_STREAM_TREADY        | out |    1|    axis    |  INPUT_STREAM_V_dest_V |    pointer   |
+|OUTPUT_STREAM_TDATA        | out |   24|    axis    | OUTPUT_STREAM_V_data_V |    pointer   |
+|OUTPUT_STREAM_TKEEP        | out |    3|    axis    | OUTPUT_STREAM_V_keep_V |    pointer   |
+|OUTPUT_STREAM_TSTRB        | out |    3|    axis    | OUTPUT_STREAM_V_strb_V |    pointer   |
+|OUTPUT_STREAM_TUSER        | out |    1|    axis    | OUTPUT_STREAM_V_user_V |    pointer   |
+|OUTPUT_STREAM_TLAST        | out |    1|    axis    | OUTPUT_STREAM_V_last_V |    pointer   |
+|OUTPUT_STREAM_TID          | out |    1|    axis    |  OUTPUT_STREAM_V_id_V  |    pointer   |
+|OUTPUT_STREAM_TDEST        | out |    1|    axis    | OUTPUT_STREAM_V_dest_V |    pointer   |
+|OUTPUT_STREAM_TVALID       | out |    1|    axis    | OUTPUT_STREAM_V_dest_V |    pointer   |
+|OUTPUT_STREAM_TREADY       |  in |    1|    axis    | OUTPUT_STREAM_V_dest_V |    pointer   |
++---------------------------+-----+-----+------------+------------------------+--------------+
+

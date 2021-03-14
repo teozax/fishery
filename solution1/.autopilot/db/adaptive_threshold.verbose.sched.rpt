@@ -1,0 +1,203 @@
+
+
+================================================================
+== Vivado HLS Report for 'adaptive_threshold'
+================================================================
+* Date:           Sun Mar 14 17:33:41 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        fishery
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.189 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+--------+--------+---------+
+    |  Latency (cycles) |  Latency (absolute) |     Interval    | Pipeline|
+    |   min   |   max   |    min   |    max   |   min  |   max  |   Type  |
+    +---------+---------+----------+----------+--------+--------+---------+
+    |   129603|   129603| 1.296 ms | 1.296 ms |  129603|  129603|   none  |
+    +---------+---------+----------+----------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- Loop 1  |   129601|   129601|         3|          1|          1|  129600|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 5 3 
+3 --> 4 
+4 --> 2 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %IN_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 6 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %IN1_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 7 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* @help_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 8 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.65ns)   --->   "br label %.preheader.i" [fishery/C++/src/extra_functions.cpp:103]   --->   Operation 9 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 1.09>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i17 [ 0, %entry ], [ %add_ln887, %hls_label_4_begin ]" [fishery/C++/src/extra_functions.cpp:103]   --->   Operation 10 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (1.09ns)   --->   "%icmp_ln887 = icmp eq i17 %indvar_flatten, -1472" [fishery/C++/src/extra_functions.cpp:103]   --->   Operation 11 'icmp' 'icmp_ln887' <Predicate = true> <Delay = 1.09> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.86ns)   --->   "%add_ln887 = add i17 %indvar_flatten, 1" [fishery/C++/src/extra_functions.cpp:103]   --->   Operation 12 'add' 'add_ln887' <Predicate = true> <Delay = 0.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln887, label %adaptive_threshold.exit, label %hls_label_4_begin" [fishery/C++/src/extra_functions.cpp:103]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 8.18>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_98_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str17)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:672->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 14 'specregionbegin' 'tmp_98_i' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str29) nounwind" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:676->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 15 'specprotocol' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 16 [1/1] (1.83ns)   --->   "%tmp_42 = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %IN_data_stream_V)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 16 'read' 'tmp_42' <Predicate = (!icmp_ln887)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str17, i32 %tmp_98_i)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:681->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 17 'specregionend' 'empty' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_99_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str17)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:672->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:108]   --->   Operation 18 'specregionbegin' 'tmp_99_i' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str29) nounwind" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:676->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:108]   --->   Operation 19 'specprotocol' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (1.83ns)   --->   "%tmp_43 = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %IN1_data_stream_V)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:108]   --->   Operation 20 'read' 'tmp_43' <Predicate = (!icmp_ln887)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%empty_283 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str17, i32 %tmp_99_i)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:681->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:108]   --->   Operation 21 'specregionend' 'empty_283' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%pix_V = call i32 @_ssdm_op_BitConcatenate.i32.i16.i16(i16 %tmp_42, i16 0)" [fishery/C++/src/extra_functions.cpp:109]   --->   Operation 22 'bitconcatenate' 'pix_V' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%pix1_V = call i32 @_ssdm_op_BitConcatenate.i32.i16.i16(i16 %tmp_43, i16 0)" [fishery/C++/src/extra_functions.cpp:112]   --->   Operation 23 'bitconcatenate' 'pix1_V' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%sext_ln1148 = sext i32 %pix1_V to i65" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 24 'sext' 'sext_ln1148' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (3.41ns)   --->   "%mul_ln1148 = mul i65 4398046512, %sext_ln1148" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 25 'mul' 'mul_ln1148' <Predicate = (!icmp_ln887)> <Delay = 3.41> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.41> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 26 [1/1] (1.09ns)   --->   "%sub_ln1148 = sub i65 0, %mul_ln1148" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 26 'sub' 'sub_ln1148' <Predicate = (!icmp_ln887)> <Delay = 1.09> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %tmp_43, i32 15)" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 27 'bitselect' 'tmp' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node sub_ln203)   --->   "%tmp_37 = call i23 @_ssdm_op_PartSelect.i23.i65.i32.i32(i65 %sub_ln1148, i32 42, i32 64)" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 28 'partselect' 'tmp_37' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%tmp_38 = call i23 @_ssdm_op_PartSelect.i23.i65.i32.i32(i65 %mul_ln1148, i32 42, i32 64)" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 29 'partselect' 'tmp_38' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns) (grouped into LUT with out node sub_ln203)   --->   "%select_ln1148 = select i1 %tmp, i23 %tmp_37, i23 %tmp_38" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 30 'select' 'select_ln1148' <Predicate = (!icmp_ln887)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 31 [1/1] (0.92ns) (out node of the LUT)   --->   "%sub_ln203 = sub i23 0, %select_ln1148" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 31 'sub' 'sub_ln203' <Predicate = (!icmp_ln887)> <Delay = 0.92> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node add_ln703)   --->   "%select_ln1148_1 = select i1 %tmp, i23 %sub_ln203, i23 %tmp_38" [fishery/C++/src/extra_functions.cpp:114]   --->   Operation 32 'select' 'select_ln1148_1' <Predicate = (!icmp_ln887)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%sext_cast = sext i32 %pix_V to i65" [fishery/C++/src/extra_functions.cpp:109]   --->   Operation 33 'sext' 'sext_cast' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (3.41ns)   --->   "%mul = mul i65 6871947674, %sext_cast" [fishery/C++/src/extra_functions.cpp:109]   --->   Operation 34 'mul' 'mul' <Predicate = (!icmp_ln887)> <Delay = 3.41> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 3.41> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 35 [1/1] (1.09ns)   --->   "%neg_mul = sub i65 0, %mul" [fishery/C++/src/extra_functions.cpp:109]   --->   Operation 35 'sub' 'neg_mul' <Predicate = (!icmp_ln887)> <Delay = 1.09> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "%tmp_39 = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %tmp_42, i32 15)" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 36 'bitselect' 'tmp_39' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_40 = call i29 @_ssdm_op_PartSelect.i29.i65.i32.i32(i65 %neg_mul, i32 36, i32 64)" [fishery/C++/src/extra_functions.cpp:109]   --->   Operation 37 'partselect' 'tmp_40' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns) (grouped into LUT with out node sub_ln703)   --->   "%tmp_41 = call i29 @_ssdm_op_PartSelect.i29.i65.i32.i32(i65 %mul, i32 36, i32 64)" [fishery/C++/src/extra_functions.cpp:109]   --->   Operation 38 'partselect' 'tmp_41' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node sub_ln703)   --->   "%p_v10_v = select i1 %tmp_39, i29 %tmp_40, i29 %tmp_41" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 39 'select' 'p_v10_v' <Predicate = (!icmp_ln887)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 40 [1/1] (0.98ns) (out node of the LUT)   --->   "%sub_ln703 = sub i29 0, %p_v10_v" [fishery/C++/src/extra_functions.cpp:115]   --->   Operation 40 'sub' 'sub_ln703' <Predicate = (!icmp_ln887)> <Delay = 0.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 41 [1/1] (0.92ns) (out node of the LUT)   --->   "%add_ln703 = add i23 -78643, %select_ln1148_1" [fishery/C++/src/extra_functions.cpp:115]   --->   Operation 41 'add' 'add_ln703' <Predicate = (!icmp_ln887)> <Delay = 0.92> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 3.83>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 129600, i64 129600, i64 129600)"   --->   Operation 42 'speclooptripcount' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_97_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str613)" [fishery/C++/src/extra_functions.cpp:105]   --->   Operation 43 'specregionbegin' 'tmp_97_i' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str29) nounwind" [fishery/C++/src/extra_functions.cpp:106]   --->   Operation 44 'specpipeline' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 45 [1/1] (0.00ns) (grouped into LUT with out node pix2_V)   --->   "%empty_284 = select i1 %tmp_39, i29 %tmp_40, i29 %sub_ln703" [C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107]   --->   Operation 45 'select' 'empty_284' <Predicate = (!icmp_ln887)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 46 [1/1] (0.00ns) (grouped into LUT with out node pix2_V)   --->   "%sext_ln703 = sext i23 %add_ln703 to i29" [fishery/C++/src/extra_functions.cpp:115]   --->   Operation 46 'sext' 'sext_ln703' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.98ns) (out node of the LUT)   --->   "%pix2_V = add i29 %empty_284, %sext_ln703" [fishery/C++/src/extra_functions.cpp:115]   --->   Operation 47 'add' 'pix2_V' <Predicate = (!icmp_ln887)> <Delay = 0.98> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.98> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 48 [1/1] (1.01ns)   --->   "%icmp_ln1497 = icmp slt i29 %pix2_V, 1" [fishery/C++/src/extra_functions.cpp:116]   --->   Operation 48 'icmp' 'icmp_ln1497' <Predicate = (!icmp_ln887)> <Delay = 1.01> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%pix2_V_2 = call i17 @_ssdm_op_BitConcatenate.i17.i1.i16(i1 %icmp_ln1497, i16 0)" [fishery/C++/src/extra_functions.cpp:116]   --->   Operation 49 'bitconcatenate' 'pix2_V_2' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_V_230 = zext i17 %pix2_V_2 to i32" [fishery/C++/src/extra_functions.cpp:116]   --->   Operation 50 'zext' 'tmp_V_230' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* @help_V_V, i32 %tmp_V_230)" [fishery/C++/src/extra_functions.cpp:117]   --->   Operation 51 'write' <Predicate = (!icmp_ln887)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%empty_285 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str613, i32 %tmp_97_i)" [fishery/C++/src/extra_functions.cpp:118]   --->   Operation 52 'specregionend' 'empty_285' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "br label %.preheader.i" [fishery/C++/src/extra_functions.cpp:104]   --->   Operation 53 'br' <Predicate = (!icmp_ln887)> <Delay = 0.00>
+
+State 5 <SV = 2> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 54 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('indvar_flatten', fishery/C++/src/extra_functions.cpp:103) with incoming values : ('add_ln887', fishery/C++/src/extra_functions.cpp:103) [10]  (0.656 ns)
+
+ <State 2>: 1.1ns
+The critical path consists of the following:
+	'phi' operation ('indvar_flatten', fishery/C++/src/extra_functions.cpp:103) with incoming values : ('add_ln887', fishery/C++/src/extra_functions.cpp:103) [10]  (0 ns)
+	'icmp' operation ('icmp_ln887', fishery/C++/src/extra_functions.cpp:103) [11]  (1.1 ns)
+
+ <State 3>: 8.19ns
+The critical path consists of the following:
+	fifo read on port 'IN1_data_stream_V' (C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:108) [24]  (1.84 ns)
+	'mul' operation ('mul_ln1148', fishery/C++/src/extra_functions.cpp:114) [29]  (3.41 ns)
+	'sub' operation ('sub_ln1148', fishery/C++/src/extra_functions.cpp:114) [30]  (1.09 ns)
+	'select' operation ('select_ln1148', fishery/C++/src/extra_functions.cpp:114) [34]  (0 ns)
+	'sub' operation ('sub_ln203', fishery/C++/src/extra_functions.cpp:114) [35]  (0.924 ns)
+	'select' operation ('select_ln1148_1', fishery/C++/src/extra_functions.cpp:114) [36]  (0 ns)
+	'add' operation ('add_ln703', fishery/C++/src/extra_functions.cpp:115) [46]  (0.924 ns)
+
+ <State 4>: 3.84ns
+The critical path consists of the following:
+	'select' operation ('empty_284', C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:679->C:/Xilinx/Vivado/2019.2/common/technology/autopilot/hls/hls_video_core.h:711->fishery/C++/src/extra_functions.cpp:107) [45]  (0 ns)
+	'add' operation ('pix2.V', fishery/C++/src/extra_functions.cpp:115) [48]  (0.985 ns)
+	'icmp' operation ('icmp_ln1497', fishery/C++/src/extra_functions.cpp:116) [49]  (1.01 ns)
+	fifo write on port 'help_V_V' (fishery/C++/src/extra_functions.cpp:117) [52]  (1.84 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

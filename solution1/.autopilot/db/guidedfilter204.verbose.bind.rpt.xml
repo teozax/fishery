@@ -1,0 +1,52 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'guidedfilter204'" level="0">
+<item name = "Date">Sun Mar 14 17:33:05 2021
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">fishery</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.084 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">137443, 137443, 1.374 ms, 1.374 ms, 137284, 137284, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_compute_a_b208_fu_76">compute_a_b208, 129706, 129706, 1.297 ms, 1.297 ms, 129706, 129706, none</column>
+<column name="grp_compute_I_enhanced21_fu_92">compute_I_enhanced21, 129654, 129654, 1.297 ms, 1.297 ms, 129654, 129654, none</column>
+<column name="grp_boxfilter200205_fu_106">boxfilter200205, 137283, 137283, 1.373 ms, 1.373 ms, 137283, 137283, none</column>
+<column name="grp_boxfilter201206_fu_114">boxfilter201206, 137283, 137283, 1.373 ms, 1.373 ms, 137283, 137283, none</column>
+<column name="grp_boxfilter202207_fu_122">boxfilter202207, 137283, 137283, 1.373 ms, 1.373 ms, 137283, 137283, none</column>
+<column name="grp_boxfilter203209_fu_130">boxfilter203209, 137283, 137283, 1.373 ms, 1.373 ms, 137283, 137283, none</column>
+<column name="grp_boxfilter210_fu_138">boxfilter210, 137283, 137283, 1.373 ms, 1.373 ms, 137283, 137283, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

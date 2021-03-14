@@ -1,0 +1,161 @@
+
+
+================================================================
+== Vivado HLS Report for 'Block_codeRepl7839_p'
+================================================================
+* Date:           Sun Mar 14 17:36:34 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        fishery
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 1.838 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|       2|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      90|    -|
+|Register         |        -|      -|       3|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       3|      92|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+-------+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |ap_block_state1  |    or    |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |Total            |          |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------+----+-----------+-----+-----------+
+    |             Name            | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------+----+-----------+-----+-----------+
+    |I_enhanced_cols_V_out_blk_n  |   9|          2|    1|          2|
+    |I_enhanced_rows_V_out_blk_n  |   9|          2|    1|          2|
+    |ap_done                      |   9|          2|    1|          2|
+    |img_2_cols_V_out_blk_n       |   9|          2|    1|          2|
+    |img_2_rows_V_out_blk_n       |   9|          2|    1|          2|
+    |img_3_cols_V_out_blk_n       |   9|          2|    1|          2|
+    |img_3_rows_V_out_blk_n       |   9|          2|    1|          2|
+    |img_4_cols_V_out_blk_n       |   9|          2|    1|          2|
+    |img_4_rows_V_out_blk_n       |   9|          2|    1|          2|
+    |real_start                   |   9|          2|    1|          2|
+    +-----------------------------+----+-----------+-----+-----------+
+    |Total                        |  90|         20|   10|         20|
+    +-----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  1|   0|    1|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           |  3|   0|    3|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------------+-----+-----+------------+-----------------------+--------------+
+|           RTL Ports          | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++------------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                        |  in |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|ap_rst                        |  in |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|ap_start                      |  in |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|start_full_n                  |  in |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|ap_done                       | out |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|ap_continue                   |  in |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|ap_idle                       | out |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|ap_ready                      | out |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|start_out                     | out |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|start_write                   | out |    1| ap_ctrl_hs |  Block_codeRepl7839_p | return value |
+|I_enhanced_rows_V_out_din     | out |   10|   ap_fifo  | I_enhanced_rows_V_out |    pointer   |
+|I_enhanced_rows_V_out_full_n  |  in |    1|   ap_fifo  | I_enhanced_rows_V_out |    pointer   |
+|I_enhanced_rows_V_out_write   | out |    1|   ap_fifo  | I_enhanced_rows_V_out |    pointer   |
+|I_enhanced_cols_V_out_din     | out |   10|   ap_fifo  | I_enhanced_cols_V_out |    pointer   |
+|I_enhanced_cols_V_out_full_n  |  in |    1|   ap_fifo  | I_enhanced_cols_V_out |    pointer   |
+|I_enhanced_cols_V_out_write   | out |    1|   ap_fifo  | I_enhanced_cols_V_out |    pointer   |
+|img_2_rows_V_out_din          | out |   10|   ap_fifo  |    img_2_rows_V_out   |    pointer   |
+|img_2_rows_V_out_full_n       |  in |    1|   ap_fifo  |    img_2_rows_V_out   |    pointer   |
+|img_2_rows_V_out_write        | out |    1|   ap_fifo  |    img_2_rows_V_out   |    pointer   |
+|img_2_cols_V_out_din          | out |   10|   ap_fifo  |    img_2_cols_V_out   |    pointer   |
+|img_2_cols_V_out_full_n       |  in |    1|   ap_fifo  |    img_2_cols_V_out   |    pointer   |
+|img_2_cols_V_out_write        | out |    1|   ap_fifo  |    img_2_cols_V_out   |    pointer   |
+|img_3_rows_V_out_din          | out |   10|   ap_fifo  |    img_3_rows_V_out   |    pointer   |
+|img_3_rows_V_out_full_n       |  in |    1|   ap_fifo  |    img_3_rows_V_out   |    pointer   |
+|img_3_rows_V_out_write        | out |    1|   ap_fifo  |    img_3_rows_V_out   |    pointer   |
+|img_3_cols_V_out_din          | out |   10|   ap_fifo  |    img_3_cols_V_out   |    pointer   |
+|img_3_cols_V_out_full_n       |  in |    1|   ap_fifo  |    img_3_cols_V_out   |    pointer   |
+|img_3_cols_V_out_write        | out |    1|   ap_fifo  |    img_3_cols_V_out   |    pointer   |
+|img_4_rows_V_out_din          | out |   10|   ap_fifo  |    img_4_rows_V_out   |    pointer   |
+|img_4_rows_V_out_full_n       |  in |    1|   ap_fifo  |    img_4_rows_V_out   |    pointer   |
+|img_4_rows_V_out_write        | out |    1|   ap_fifo  |    img_4_rows_V_out   |    pointer   |
+|img_4_cols_V_out_din          | out |   10|   ap_fifo  |    img_4_cols_V_out   |    pointer   |
+|img_4_cols_V_out_full_n       |  in |    1|   ap_fifo  |    img_4_cols_V_out   |    pointer   |
+|img_4_cols_V_out_write        | out |    1|   ap_fifo  |    img_4_cols_V_out   |    pointer   |
++------------------------------+-----+-----+------------+-----------------------+--------------+
+
